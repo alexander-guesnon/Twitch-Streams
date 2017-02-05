@@ -1,0 +1,33 @@
+/*
+https://color.adobe.com/create/color-wheel/?base=2&rule=Monochromatic&selected=2&name=My%20Color%20Theme&mode=rgb&rgbvalues=0.2663020987289388,0.2747561336092181,0.28039215686274505,0.5308404768942754,0.7025322691889916,0.8169934640522876,0.7411764705882353,0.7647058823529411,0.7803921568627451,0.18218445167011527,0.24110907478566188,0.28039215686274505,0.5512267218445166,0.5687259828554444,0.580392156862745&swatchOrder=0,1,2,3,4
+https://flatuicolors.com/
+color swatch
+---accent colors---
+#9b59bf
+#2ecc71
+#e74c3c
+---main colors---
+#bdc3c7
+#444647
+#8d9194
+*/
+
+body{
+background-color: #bdc3c7;
+color: #444647;
+}
+a, a:link, a:hover, a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+.title{}
+.All-streams{}
+.Online-stream{}
+.Offline-stream{}
+.search{}
+.twitch-streamers{}
+.streamer-container{}
+.streamer-icon{}
+.streamer-description{}"
+.streamer-title{}
+.my-name{}
