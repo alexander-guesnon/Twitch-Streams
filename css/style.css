@@ -13,86 +13,142 @@ color swatch
 #87B3D0
 */
 
-body{
-background-color: #bdc3c7;
-color: #444647;
+body {
+    background-color: #bdc3c7;
+    color: #444647;
 }
+
 a, a:link, a:hover, a:visited {
     color: inherit;
     text-decoration: none;
 }
-.title{
-  text-align: center;
-  font-size: 6vw;
+
+.title {
+    text-align: center;
+    font-size: 6vw;
 }
-.All-streams{
-  margin: 0% 0% 0% 50%;
-background-color: #9b59bf;
-  display: inline;
+
+.selector-container {
+    position: relative;
+    height: 3.2vw;
 }
-.Online-stream{
-background-color: #2ecc71;
+
+.All-streams {
+    text-align: center;
+    width: 9%;
+    left: 25%;
+    margin-left: -4.5%;
+    font-size: 2vw;
+    position: absolute;
+    background-color: #9b59bf;
     display: inline;
 }
-.Offline-stream{
-background-color: #e74c3c;
+
+.Online-stream {
+    display: none;
+    text-align: center;
+    width: 9%;
+    margin-left: -4.5%;
+    left: 50%;
+    font-size: 2vw;
+    position: absolute;
+    background-color: #2ecc71;
     display: inline;
 }
+
+.Offline-stream {
+    text-align: center;
+    width: 9%;
+    margin-left: -4.5%;
+    left: 75%;
+    font-size: 2vw;
+    position: absolute;
+    background-color: #e74c3c;
+    display: inline;
+}
+
 .search {
-  margin: 0% 40%;
-  position: relative;
-  color: #bdc3c7;
-  font-size: 16px;
+    margin: 1.5% 10% 0% 10%;
+    position: relative;
+    color: #bdc3c7;
+    font-size: 1vw;
 }
 
 .search input {
-  width: 250px;
-  height: 32px;
-  text-indent: 32px;
-  background-color: #444647;
-  border-style: solid;
-  border-width: 0px;
+    outline: none;
+    width: 100%;
+    height: 2.2vw;
+    text-indent: 2.2vw;
+    background-color: #444647;
+    border-style: solid;
+    border-width: 0px;
 }
 
 .search .fa-search {
-  position: absolute;
-  top: 7px;
-  left: 10px;
+    position: absolute;
+    top: 0.4375vw;
+    left: 0.625vw;
 }
-.twitch-streamers{}
-.streamer-container-online{/*this is to designate wither it is online or Offline*/
-  margin: 0% 20%;
-  width: 60%;
-  display: inline-block;
-  border-width: 10px;
-  border-style: solid;
-  border-color: #2ecc71;
-  background-color: #444647;
+
+.twitch-streamers {
+    margin: 3% 0%;
 }
-.streamer-container-offline{/*this is to designate wither it is online or Offline*/
-  margin: 0% 20%;
-  width: 60%;
-  display: inline-block;
-  border-width: 10px;
-  border-style: solid;
-  border-color: #e74c3c;
+
+.streamer-container-online {
+    /*this is to designate wither it is online or Offline*/
+    position: relative;
+    margin: 0% 20% 0.3% 20%;
+    width: 60%;
+    height: 9vw;
+    display: inline-block;
+    border-width: 0.625vw;
+    border-style: solid;
+    border-color: #2ecc71;
     background-color: #444647;
 }
-.streamer-icon{
-  display: inline;
-  height: 100px;
-  width: 100px;
-  border-color:#87B3D0;
-  border-style: solid;
-  border-width: 10px;
-  border-radius: 50%;
+
+.streamer-container-offline {
+    /*this is to designate wither it is online or Offline*/
+    position: relative;
+    margin: 0% 20% 0.3% 20%;
+    width: 60%;
+    height: 9vw;
+    display: inline-block;
+    border-width: 0.625vw;
+    border-style: solid;
+    border-color: #e74c3c;
+    background-color: #444647;
 }
-.streamer-description{
-color:#8d9194;
- }
-.streamer-title{
-  color:#bdc3c7;
+
+.streamer-icon {
+    position: absolute;
+    left: 1%;
+    top: 4%;
+    height: 7vw;
+    width: 7vw;
+    border-color: #87B3D0;
+    border-style: solid;
+    border-width: 0.625vw;
+    border-radius: 50%;
 }
-.my-name{
-  text-align: center;
+
+.streamer-description {
+    font-size: 1vw;
+    position: absolute;
+    top: 50%;
+    left: 14.5%;
+    color: #8d9194;
+}
+
+.streamer-title {
+    top: 10%;
+    left: 16.5%;
+    font-size: 1.8vw;
+    position: absolute;
+    color: #bdc3c7;
+}
+
+.my-name {
+    font-size: 1vw;
+    text-align: center;
 }
