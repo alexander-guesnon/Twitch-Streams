@@ -109,6 +109,7 @@ a, a:link, a:hover, a:visited {
     border-style: solid;
     border-color: #2ecc71;
     background-color: #444647;
+
 }
 
 .streamer-container-offline {
@@ -122,6 +123,7 @@ a, a:link, a:hover, a:visited {
     border-style: solid;
     border-color: #e74c3c;
     background-color: #444647;
+
 }
 
 .streamer-icon {
