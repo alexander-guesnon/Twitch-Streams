@@ -1,4 +1,4 @@
-/*
+  /*
 https://color.adobe.com/create/color-wheel/?base=2&rule=Monochromatic&selected=2&name=My%20Color%20Theme&mode=rgb&rgbvalues=0.2663020987289388,0.2747561336092181,0.28039215686274505,0.5308404768942754,0.7025322691889916,0.8169934640522876,0.7411764705882353,0.7647058823529411,0.7803921568627451,0.18218445167011527,0.24110907478566188,0.28039215686274505,0.5512267218445166,0.5687259828554444,0.580392156862745&swatchOrder=0,1,2,3,4
 https://flatuicolors.com/
 color swatch
@@ -18,6 +18,8 @@ body {
     color: #444647;
 }
 button{
+  background-color: inherit;
+  color: inherit;
   border-style: solid;
   border-width: 0px;
   outline: none;
@@ -36,12 +38,29 @@ a, a:link, a:hover, a:visited {
     position: relative;
     height: 3.2vw;
 }
+.dot-1{
+  display: inline;
+  top: 25%;
+  left: 10%;
+  font-size: 1vw ;
+   position: absolute;
+   display:none;
+}
+.dot-2{
+
+  top:25%;
+  right: 10%;
+  display: inline;
+  font-size: 1vw ;
+   position: absolute;
+   display:none;
+}
 
 .All-streams {
     text-align: center;
-    width: 9%;
+    width: 12%;
     left: 25%;
-    margin-left: -4.5%;
+    margin-left: -6%;
     font-size: 2vw;
     position: absolute;
     background-color: #9b59bf;
@@ -51,8 +70,8 @@ a, a:link, a:hover, a:visited {
 .Online-stream {
     display: none;
     text-align: center;
-    width: 9%;
-    margin-left: -4.5%;
+    width: 12%;
+    margin-left: -6%;
     left: 50%;
     font-size: 2vw;
     position: absolute;
@@ -62,8 +81,8 @@ a, a:link, a:hover, a:visited {
 
 .Offline-stream {
     text-align: center;
-    width: 9%;
-    margin-left: -4.5%;
+    width: 12%;
+    margin-left: -6%;
     left: 75%;
     font-size: 2vw;
     position: absolute;

@@ -1,125 +1,73 @@
-var streamer_list = [{
-        "twitch_name": "freecodecamp",
-        "url": "https://www.twitch.tv/freecodecamp",
-        "logo": "",
-        "title": "",
-        "game": "",
-        "description": "",
-        "is_streaming": false,
-        "has_updated": false
-    },
-    {
-        "twitch_name": "annemunition",
-        "url": "https://www.twitch.tv/annemunition",
-        "logo": "",
-        "title": "",
-        "game": "",
-        "description": "",
-        "is_streaming": false,
-        "has_updated": false
-    },
-    {
-        "twitch_name": "monstercat",
-        "url": "https://www.twitch.tv/monstercat",
-        "logo": "",
-        "title": "",
-        "game": "",
-        "description": "",
-        "is_streaming": false,
-        "has_updated": false
-    },
-    {
-        "twitch_name": "bobross",
-        "url": "https://www.twitch.tv/bobross",
-        "logo": "",
-        "title": "",
-        "game": "",
-        "description": "",
-        "is_streaming": false,
-        "has_updated": false
-    },
-    {
-        "twitch_name": "witwix",
-        "url": "https://www.twitch.tv/witwix",
-        "logo": "",
-        "title": "",
-        "game": "",
-        "description": "",
-        "is_streaming": false,
-        "has_updated": false
-    },
-    {
-        "twitch_name": "livewithjazza",
-        "url": "https://www.twitch.tv/livewithjazza",
-        "logo": "",
-        "title": "",
-        "game": "",
-        "description": "",
-        "is_streaming": false,
-        "has_updated": false
-    },
-    {
-        "twitch_name": "a_seagull",
-        "url": "https://www.twitch.tv/a_seagull",
-        "logo": "",
-        "title": "",
-        "game": "",
-        "description": "",
-        "is_streaming": false,
-        "has_updated": false
-    },
-    {
-        "twitch_name": "moonmoon_ow",
-        "url": "https://www.twitch.tv/moonmoon_ow",
-        "logo": "",
-        "title": "",
-        "game": "",
-        "description": "",
-        "is_streaming": false,
-        "has_updated": false
-    },
-    {
-        "twitch_name": "handmade_hero",
-        "url": "https://www.twitch.tv/handmade_hero",
-        "logo": "",
-        "title": "",
-        "game": "",
-        "description": "",
-        "is_streaming": false,
-        "has_updated": false
-    },
-    {
-        "twitch_name": "notch",
-        "url": "https://www.twitch.tv/notch",
-        "logo": "",
-        "title": "",
-        "game": "",
-        "description": "",
-        "is_streaming": false,
-        "has_updated": false
-    },
-    {
-        "twitch_name": "linustech",
-        "url": "https://www.twitch.tv/linustech",
-        "logo": "",
-        "title": "",
-        "game": "",
-        "description": "",
-        "is_streaming": false,
-        "has_updated": false
-    }
-];
-var buttonToggle="ALL";
+
+var streamer_arr = ["freecodecamp", "annemunition", "monstercat", "bobross","witwix","livewithjazza","a_seagull","moonmoon_ow","handmade_hero","notch","linustech"];
+var streamer_list=[];
+var buttonToggle = "ALL";
 $(document).ready(function() {
     constructJSON();
+
     get_if_streaming();
     get_channel_status();
     wait_for_connection();
+
+    $(".All-streams").hover(function() {
+        $(".All-streams .dot-1,.All-streams .dot-2").stop().fadeOut();
+        setTimeout(function() {
+            $(".All-streams .dot-1,.All-streams .dot-2").css("display", "inline");
+        }, 400);
+        $(".All-streams .dot-1,.All-streams .dot-2").fadeIn();
+    },function() {
+        $(".All-streams .dot-1,.All-streams .dot-2").stop().fadeOut();
+        setTimeout(function() {
+            $(".All-streams .dot-1,.All-streams .dot-2").css("display", "none");
+        }, 400);
+    });
+
+    $(".Online-stream").hover(function() {
+        $(".Online-stream .dot-1,.Online-stream .dot-2").stop().fadeOut();
+        setTimeout(function() {
+            $(".Online-stream .dot-1,.Online-stream .dot-2").css("display", "inline");
+        }, 400);
+        $(".Online-stream .dot-1,.Online-stream .dot-2").fadeIn();
+    },function() {
+        $(".Online-stream .dot-1,.Online-stream .dot-2").stop().fadeOut();
+        setTimeout(function() {
+            $(".Online-stream .dot-1,.Online-stream .dot-2").css("display", "none");
+        }, 400);
+    });
+
+    $(".Offline-stream").hover(function() {
+        $(".Offline-stream .dot-1,.Offline-stream .dot-2").stop().fadeOut();
+        setTimeout(function() {
+            $(".Offline-stream .dot-1,.Offline-stream .dot-2").css("display", "inline");
+        }, 400);
+        $(".Offline-stream .dot-1,.Offline-stream .dot-2").fadeIn();
+    },function() {
+        $(".Offline-stream .dot-1,.Offline-stream .dot-2").stop().fadeOut();
+        setTimeout(function() {
+            $(".Offline-stream .dot-1,.Offline-stream .dot-2").css("display", "none");
+        }, 400);
+    });
     $(".search input").keyup(function() {
-      search();
+        search();
     });
     $(".All-streams").click(function() {
-      buttonToggle="ALL";
+        buttonToggle = "ALL";
+        $(".All-streams").animate({
+            width: '47%',
+            left: '30%',
+            "margin-left": '-20%'
+        }, 500);
+        $(".Online-stream").animate({
+            width: "12%",
+            "margin-left": "-6%",
+            left: "68%",
+        }, 500);
+        $(".Offline-stream").animate({
+            width: "12%",
+            "margin-left": "-6%",
+            left: "84%"
+        }, 500);
+
         $(".twitch-streamers, .my-name").fadeOut();
         setTimeout(function() {
             $(".streamer-container-online , .streamer-container-offline").css("display", "inline-block");
@@ -128,7 +76,23 @@ $(document).ready(function() {
         $(".twitch-streamers, .my-name").delay(400).fadeIn();
     });
     $(".Online-stream").click(function() {
-      buttonToggle="ONLINE";
+        buttonToggle = "ONLINE";
+        $(".All-streams").animate({
+            width: '12%',
+            left: '16%',
+            "margin-left": '-6%'
+        }, 500);
+        $(".Online-stream").animate({
+            width: "47%",
+            "margin-left": "-23.5%",
+            left: "50%",
+        }, 500);
+        $(".Offline-stream").animate({
+            width: "12%",
+            "margin-left": "-6%",
+            left: "84%"
+        }, 500);
+
         $(".twitch-streamers, .my-name").fadeOut();
         setTimeout(function() {
             $(".streamer-container-online").css("display", "inline-block");
@@ -139,7 +103,22 @@ $(document).ready(function() {
         $(".twitch-streamers, .my-name").delay(400).fadeIn();
     });
     $(".Offline-stream").click(function() {
-        buttonToggle="OFFLINE";
+        buttonToggle = "OFFLINE";
+        $(".All-streams").animate({
+            width: '12%',
+            left: '16%',
+            "margin-left": '-6%'
+        }, 500);
+        $(".Online-stream").animate({
+            width: "12%",
+            "margin-left": "-6%",
+            left: "32.5%",
+        }, 500);
+        $(".Offline-stream").animate({
+            width: "47%",
+            "margin-left": "-23.5%",
+            left: "66.5%"
+        }, 500);
         $(".twitch-streamers, .my-name").fadeOut();
         setTimeout(function() {
             $(".streamer-container-offline").css("display", "inline-block");
@@ -151,30 +130,54 @@ $(document).ready(function() {
     });
 
 });
-
-function search(){
-  var searchInput = $(".search input").val().toLowerCase();//get rid of spaces
-  for (var i = 0; i < streamer_list.length; i++) { //wind-bow does not suport multiple querys
-      if (streamer_list[i].title.toLowerCase().indexOf(searchInput) >= 0) {
-        if(buttonToggle==="ONLINE"){
-          $(".twitch-streamers .streamer-container-online:nth-child(" + (i + 1) + ")").css("display", "inline-block");
-        } else if (buttonToggle==="OFFLINE") {
-          $(".twitch-streamers .streamer-container-offline:nth-child(" + (i + 1) + ")").css("display", "inline-block");
-        }else{
-          $(".twitch-streamers .streamer-container-online:nth-child(" + (i + 1) + ")").css("display", "inline-block");
-          $(".twitch-streamers .streamer-container-offline:nth-child(" + (i + 1) + ")").css("display", "inline-block");
-        }
-
-
-      } else {
-          $(".twitch-streamers .streamer-container-offline:nth-child(" + (i + 1) + ")").css("display", "none");
-          $(".twitch-streamers .streamer-container-online:nth-child(" + (i + 1) + ")").css("display", "none");
-      }
+function constructJSON() {
+  var temp={
+      "twitch_name": "",
+      "url": "",
+      "logo": "",
+      "title": "",
+      "game": "",
+      "description": "",
+      "is_streaming": false,
+      "has_updated": false
+  };
+  for (var i = 0; i < streamer_arr.length; i++) {
+    temp.twitch_name=streamer_arr[i];
+      streamer_list.push(temp);
+      temp={//it wont sucssfully push into the array enless i do this
+          "twitch_name": "",
+          "url": "",
+          "logo": "",
+          "title": "",
+          "game": "",
+          "description": "",
+          "is_streaming": false,
+          "has_updated": false
+      };
   }
 }
-function constructJSON() {
-    //dynamicly construct a json so it is easer to put in data
+function search() {
+    var searchInput = $(".search input").val().toLowerCase(); //get rid of spaces
+    for (var i = 0; i < streamer_list.length; i++) { //wind-bow does not suport multiple querys
+        if (streamer_list[i].title.toLowerCase().indexOf(searchInput) >= 0) {
+            if (buttonToggle === "ONLINE") {
+                $(".twitch-streamers .streamer-container-online:nth-child(" + (i + 1) + ")").css("display", "inline-block");
+            } else if (buttonToggle === "OFFLINE") {
+                $(".twitch-streamers .streamer-container-offline:nth-child(" + (i + 1) + ")").css("display", "inline-block");
+            } else {
+                $(".twitch-streamers .streamer-container-online:nth-child(" + (i + 1) + ")").css("display", "inline-block");
+                $(".twitch-streamers .streamer-container-offline:nth-child(" + (i + 1) + ")").css("display", "inline-block");
+            }
+
+
+        } else {
+            $(".twitch-streamers .streamer-container-offline:nth-child(" + (i + 1) + ")").css("display", "none");
+            $(".twitch-streamers .streamer-container-online:nth-child(" + (i + 1) + ")").css("display", "none");
+        }
+    }
 }
+
+
 
 function api_call(current) {
 
@@ -196,6 +199,7 @@ function api_call_2(current) {
         streamer_list[current].title = data.display_name;
         streamer_list[current].game = data.game;
         streamer_list[current].description = data.status;
+        streamer_list[current].url = data.url;
         streamer_list[current].has_updated = true; //this will alert the print screen function if the api calls are done
     });
 
@@ -234,6 +238,22 @@ function wait_for_connection() {
         }, 500);
     } else {
         print_to_screen();
+
+        $(".All-streams").animate({
+            width: '47%',
+            left: '30%',
+            "margin-left": '-20%'
+        }, 500);
+        $(".Online-stream").animate({
+            width: "12%",
+            "margin-left": "-6%",
+            left: "68%",
+        }, 500);
+        $(".Offline-stream").animate({
+            width: "12%",
+            "margin-left": "-6%",
+            left: "84%"
+        }, 500);
     }
 
 
