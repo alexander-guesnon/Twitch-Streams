@@ -1,6 +1,6 @@
 # Twitch-Streams
 
-"[Twitch-Streams](https://alexgooz.github.io/Twitch-Streams/)" is a website that uses the *[Twitchtv JSON API](https://dev.twitch.tv/docs/v5/reference/streams/#get-stream-by-user)* to see who is streaming at the moment. I made this for a freeCodeCamp challenge (Use the Twitchtv JSON API).
+"[Twitch-Streams](https://alexander-guesnon.github.io/Twitch-Streams/)" is a website that uses the *[Twitchtv JSON API](https://dev.twitch.tv/docs/v5/reference/streams/#get-stream-by-user)* to see who is streaming at the moment. I made this for a freeCodeCamp challenge (Use the Twitchtv JSON API).
 
 ## Outline
 
